@@ -3,6 +3,7 @@
 /* -- Data section */
 .data
 
+S: .asciz "string!"
 /* Ensure variable is 4-byte aligned */
 .align 4
 /* Define storage for myvar1 */
@@ -21,7 +22,7 @@ myvar2:
 .text
 
 /* Ensure code section starts 4 byte aligned */
-.balign 4
+//.balign 4
 .global main
 main:
 ldr r1, addr_of_myvar1 /* r1 <- &myvar1 */
