@@ -1,0 +1,6 @@
+/* -- compare01.s */
+.text
+.global main
+main:
+	mov r1, #2  // r1 <- 2
+mov r1, #2  // r1 <- 2
