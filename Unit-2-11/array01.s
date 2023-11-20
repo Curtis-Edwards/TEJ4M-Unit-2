@@ -1,12 +1,19 @@
-/* -- test.s */
-
+/* -- array01.s */
+.data
+a: .skip 400
+b: .skip 8
 .text
 .global main
-
 main:
-        mov r0, #3 // r0 <- 3
-	mov r0, r0, lsl #2 // r1 <- (r1 * 2^2)
-	mov r0, r0, lsl #3 // r1 <- (r1 * 2^3)
-	mov r0, r0, lsr #4 // r1 <- (r1 * 1/2^4)
-	mov r0, r0, lsl #1 // r1 <- (r1 * 2^1)
-        bx lr
+	ldr r1, =a @ r1 <- &a
+	mov r2, #0 @ r2 <- 0
+
+Loop:
+	cmp r2, #100 @ Have we reached 100 yet?
+	beq end @ If so, leave the loop
+	add r3, r1, r2, LSL #2 @ r3 <- r1 + (r2*4)
+	str r2, [r3] @ *r3 <- r2
+	add r2, r2, #1 @ r2 <- r2 + 1
+	b Loop @ Goto beginning of the Loop
+end:
+	bx lr
