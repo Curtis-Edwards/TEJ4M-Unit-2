@@ -24,27 +24,27 @@ return: .word 0
 
 .global main
 main:
-ldr r1, =return // r1 <- &return
-str lr, [r1] // *r1 <- lr ; save return address
-
-ldr r0, =message1 // r0 <- &message1
-bl printf // call to printf
-
-ldr r0, =scan_pattern // r0 <- &scan_pattern
-ldr r1, =number_read // r1 <- &number_read
-bl scanf // call to scanf
-
-ldr r0, =message2 // r0 <- &message2
-ldr r1, =number_read // r1 <- &number_read
-ldr r1, [r1] // r1 <- *r1
-bl printf // call to printf
-
-ldr r0, =number_read // r0 <- &number_read
-ldr r0, [r0] // r0 <- *r0
-
-ldr lr, =return // lr <- &return
-ldr lr, [lr] // lr <- *lr
-bx lr // return from main using lr
+  ldr r1, =return // r1 <- &return
+  str lr, [r1] // *r1 <- lr ; save return address
+  
+  ldr r0, =message1 // r0 <- &message1
+  bl printf // call to printf
+  
+  ldr r0, =scan_pattern // r0 <- &scan_pattern
+  ldr r1, =number_read // r1 <- &number_read
+  bl scanf // call to scanf
+  
+  ldr r0, =message2 // r0 <- &message2
+  ldr r1, =number_read // r1 <- &number_read
+  ldr r1, [r1] // r1 <- *r1
+  bl printf // call to printf
+  
+  ldr r0, =number_read // r0 <- &number_read
+  ldr r0, [r0] // r0 <- *r0
+  
+  ldr lr, =return // lr <- &return
+  ldr lr, [lr] // lr <- *lr
+  bx lr // return from main using lr
 
 /* External */
 .global printf
