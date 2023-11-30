@@ -21,14 +21,15 @@ addNumbers:
     bx lr
 
 printResult:
-    /* Prints the result in r0 */
-    mov r7, #4      /* syscall: write */
+    /* Prints the result in r0 as an integer */
+    mov r7, #1      /* syscall: write */
     mov r0, #1      /* file descriptor: STDOUT */
     ldr r2, =intBuffer
-    mov r3, #10     /* buffer size: 10 */
+    mov r3, #4      /* buffer size: 4 (to print an integer) */
+    mov r4, #0      /* format specifier: 0 for integer */
     svc 0
 
     bx lr
 
 .data
-intBuffer: .space 10
+intBuffer: .space 4
