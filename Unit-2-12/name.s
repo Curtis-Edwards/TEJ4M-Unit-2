@@ -1,11 +1,11 @@
-/* -- hello01.s */
+/* -- name01.s */
 .data
+
+greeting:
+.asciz "My name is Curtis!"
 
 .balign 4
 return: .word 0
-
-greeting:
-.asciz "Hello world"
 
 .text
 
