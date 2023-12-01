@@ -29,6 +29,10 @@ main:
   ldr r0, =buffer // r0 <- &buffer
   bl gets // call to gets to read a string
   
+  // Manually add a null terminator
+  mov r1, #0
+  strb r1, [r0, #99] // Assuming buffer size is 100
+  
   ldr r0, =message2 // r0 <- &message2
   ldr r1, =buffer // r1 <- &buffer
   bl printf // call to printf
