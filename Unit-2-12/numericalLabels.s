@@ -22,4 +22,4 @@ main: /* This is main */
 .data
 message1: .asciz "Numerical Label Test\n"
 message2: .asciz "Success\n"
-errmessage: .asciz "Failure!\n".global puts
+errmessage: .asciz "Failure!\n"
